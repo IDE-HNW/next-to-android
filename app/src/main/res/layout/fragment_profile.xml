@@ -5,8 +5,8 @@
     tools:context=".MainProfile">
     <data>
         <variable
-            name=""
-            type="kr.hs.ide.nextto.network.model." />
+            name="info"
+            type="kr.hs.ide.nextto.network.model.ProfileInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

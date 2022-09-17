@@ -1,4 +1,4 @@
-package kr.hs.ide.nextto.features.main.vm
+package kr.hs.ide.nextto.features.profile.vm
 
 import androidx.lifecycle.ViewModel
 import kr.hs.ide.nextto.databinding.FragmentMainBinding

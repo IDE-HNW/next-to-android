@@ -1,6 +1,7 @@
 package kr.hs.ide.nextto.features.main.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,10 @@ import kr.hs.ide.nextto.network.model.BenefitInfo
 class MainFragment : Fragment() {
     private lateinit var binding : FragmentMainBinding
     private val viewModel : MainViewModel by viewModels()
+
+    init {
+        Log.d("MainFragment","생성")
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,9 +42,9 @@ class MainFragment : Fragment() {
         with(binding.rvMainList){
             this.adapter = adapter
             layoutManager = LinearLayoutManager(requireContext())
+            adapter.submitList(list)
         }
-        adapter.submitList(list)
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
