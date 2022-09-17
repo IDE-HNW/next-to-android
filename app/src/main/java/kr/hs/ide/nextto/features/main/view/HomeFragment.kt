@@ -10,13 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import kr.hs.ide.nextto.R
-import kr.hs.ide.nextto.databinding.FragmentMainBinding
+import kr.hs.ide.nextto.databinding.FragmentHomeBinding
 import kr.hs.ide.nextto.features.main.adapter.BenefitAdapter
 import kr.hs.ide.nextto.features.main.vm.HomeViewModel
 import kr.hs.ide.nextto.network.model.BenefitInfo
 
 class HomeFragment : Fragment() {
-    private lateinit var binding : FragmentMainBinding
+    private lateinit var binding : FragmentHomeBinding
     private val viewModel : HomeViewModel by viewModels()
 
     init {
