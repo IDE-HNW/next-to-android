@@ -51,6 +51,37 @@ class DepressionFragment : Fragment() {
         binding.submit.setOnClickListener {
             if (score >= 10) { Toast.makeText(context!!, "우울증이 의심됩니다! 전문가와 상담을 해보시거나  노인복지관, 경로당 및 노인교실에 가서 여가를 즐겨보는 것은 어떤가요?", Toast.LENGTH_SHORT).show() }
             else { Toast.makeText(context!!, "정상 이십니다!", Toast.LENGTH_SHORT).show() }
+
+            binding.c1No.isChecked = false
+            binding.c2No.isChecked = false
+            binding.c3No.isChecked = false
+            binding.c4No.isChecked = false
+            binding.c5No.isChecked = false
+            binding.c6No.isChecked = false
+            binding.c7No.isChecked = false
+            binding.c8No.isChecked = false
+            binding.c9No.isChecked = false
+            binding.c10No.isChecked = false
+            binding.c11No.isChecked = false
+            binding.c12No.isChecked = false
+            binding.c13No.isChecked = false
+            binding.c14No.isChecked = false
+            binding.c15No.isChecked = false
+            binding.c1Yes.isChecked = false
+            binding.c2Yes.isChecked = false
+            binding.c3Yes.isChecked = false
+            binding.c4Yes.isChecked = false
+            binding.c5Yes.isChecked = false
+            binding.c6Yes.isChecked = false
+            binding.c7Yes.isChecked = false
+            binding.c8Yes.isChecked = false
+            binding.c9Yes.isChecked = false
+            binding.c10Yes.isChecked = false
+            binding.c11Yes.isChecked = false
+            binding.c12Yes.isChecked = false
+            binding.c13Yes.isChecked = false
+            binding.c14Yes.isChecked = false
+            binding.c15Yes.isChecked = false
         }
         return binding.root
     }
