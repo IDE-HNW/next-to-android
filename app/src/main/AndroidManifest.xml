@@ -24,7 +24,13 @@
 
         <activity
             android:name=".features.main.view.SignInActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".features.lock.view.LockActivity"
@@ -39,24 +45,12 @@
             android:permission="android.permission.SYSTEM_ALERT_WINDOW"
             android:exported="true" />
 
-
-        <activity android:name=".features.setting.view.SettingActivity"
-            android:exported="true">
-
-
-        </activity>
-
         <activity
             android:name=".features.main.view.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".features.main.view.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
     </application>
 
