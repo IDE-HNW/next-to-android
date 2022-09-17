@@ -46,6 +46,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.appcompat"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation files('D:\\amqp-client-5.16.0')
 
     testImplementation "junit:junit:$rootProject.junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.extJunit"
@@ -84,5 +85,11 @@ dependencies {
 
     // location
     implementation "com.google.android.gms:play-services-location:$rootProject.googleLocation"
+
+    //rabbit
+    implementation files('libs/amqp-client-5.16.0.jar')
+    implementation files('libs/slf4j-api-1.7.30.jar')
+
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
 
 }
