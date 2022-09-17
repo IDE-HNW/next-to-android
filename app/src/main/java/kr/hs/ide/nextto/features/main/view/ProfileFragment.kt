@@ -27,7 +27,7 @@ class ProfileFragment : Fragment() {
             val age = binding.age.text.toString()
             val emergency = binding.emergencyContact.text.toString()
 
-            signUpActivity?.goLocation()
+            signUpActivity?.goLocation(this)
         }
 
         return binding.root

@@ -9,7 +9,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/sign_up_id"
         android:layout_width="216dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:hint="ID"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/sign_up_pw"
         android:layout_width="216dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:hint="PASSWORD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/age"
         android:layout_width="216dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:hint="Age/나이"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/emergency_contact"
         android:layout_width="216dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:hint="비상연락망"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

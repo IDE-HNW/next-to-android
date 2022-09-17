@@ -21,7 +21,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/location"
         android:layout_width="216dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:hint="주소"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/deepLocation"
         android:layout_width="216dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:hint="상세 주소"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

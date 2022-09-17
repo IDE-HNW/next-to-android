@@ -9,7 +9,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/sign_in_id"
         android:layout_width="216dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:hint="ID"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/sign_in_pw"
         android:layout_width="216dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:hint="PASSWORD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
