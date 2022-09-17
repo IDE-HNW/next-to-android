@@ -25,12 +25,12 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(
-            inflater,
-        R.layout.fragment_profile,
-            container,
-            false
-        )
+//        binding = DataBindingUtil.inflate(
+//            inflater,
+//        R.layout.fragment_profile,
+//            container,
+//            false
+//        )
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
