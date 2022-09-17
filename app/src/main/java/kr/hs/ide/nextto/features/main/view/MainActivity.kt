@@ -2,7 +2,10 @@ package kr.hs.ide.nextto.features.main.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import kr.hs.ide.nextto.R
+import kr.hs.ide.nextto.databinding.FragmentMainBinding
+import kr.hs.ide.nextto.features.main.vm.MainViewModel
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
