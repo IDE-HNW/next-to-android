@@ -3,71 +3,73 @@ package kr.hs.ide.nextto.features.lock.service
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.app.Service
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.IBinder
-import android.util.Log
 import kr.hs.ide.nextto.R
-import kr.hs.ide.nextto.features.lock.receiver.ScreenOffReceiver
+import kr.hs.ide.nextto.features.lock.view.LockActivity
+import kr.hs.ide.nextto.features.setting.view.SettingActivity
 
 class LockScreenService : Service() {
-    var receiver: ScreenOffReceiver? = null
+    private val receiver = object:BroadcastReceiver() {
 
-    private val ANDROID_CHANNEL_ID = "LockScreenNotification"
-    private val NOTIFICATION_ID = 9999
+        override fun onReceive(context: Context?, intent: Intent?) {
+            if (intent != null) {
+                when (intent.action) {
+                    Intent.ACTION_SCREEN_OFF -> {
+                        val newIntent = Intent(context, LockActivity::class.java)
 
-    override fun onCreate() {
-        Log.e("!", "onCreate")
-        super.onCreate()
+                        newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 
-        if (receiver == null) {
-            receiver = ScreenOffReceiver()
-            val filter = IntentFilter(Intent.ACTION_SCREEN_OFF)
-            registerReceiver(receiver, filter)
-        }
-    }
+                        startActivity(newIntent)
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        super.onStartCommand(intent, flags, startId)
-
-        intent?.let {
-            if (receiver == null) {
-                receiver = ScreenOffReceiver()
-                val filter = IntentFilter(Intent.ACTION_SCREEN_OFF)
-                registerReceiver(receiver, filter)
+                    }
+                }
             }
         }
 
-        val chan = NotificationChannel(
-            ANDROID_CHANNEL_ID,
-            "LockScreenService",
-            NotificationManager.IMPORTANCE_NONE
-        )
-        chan.lockscreenVisibility = Notification.VISIBILITY_PRIVATE
-
-        val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        manager.createNotificationChannel(chan)
-
-        val builder = Notification.Builder(this, ANDROID_CHANNEL_ID)
-            .setContentTitle(getString(R.string.app_name))
-        val notification = builder.build()
-
-        // Foreground Service 시작!
-        startForeground(NOTIFICATION_ID, notification)
-
-        return Service.START_REDELIVER_INTENT
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        if (receiver != null) {
-            unregisterReceiver(receiver)
-        }
     }
 
     override fun onBind(p0: Intent?): IBinder? {
         return null
+    }
+
+    private val ALARM_ID = "kr.hs.ide.nextto.lockscreen"
+
+    override fun onCreate() {
+        super.onCreate()
+
+        val nm = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        val channel = NotificationChannel(ALARM_ID, "잠금화면", NotificationManager.IMPORTANCE_DEFAULT)
+        nm.createNotificationChannel(channel)
+
+        val pending = PendingIntent.getActivity(this, 0, Intent(this, SettingActivity::class.java), PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        val notification = Notification.Builder(this, ALARM_ID)
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentTitle("잠금화면 서비스가 동작중이에요")
+            .setContentText("오늘 행복한 하루가 되기를 바래요!")
+            .setContentIntent(pending)
+            .build()
+
+        startForeground(1, notification)
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        val filter = IntentFilter()
+        filter.addAction(Intent.ACTION_SCREEN_OFF)
+
+        registerReceiver(receiver, filter)
+
+        return START_STICKY
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(receiver)
     }
 }
