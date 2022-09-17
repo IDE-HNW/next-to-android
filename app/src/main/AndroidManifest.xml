@@ -18,18 +18,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Nextto"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
         <activity
             android:name=".features.main.view.SignInActivity"
-            android:exported="true" >
-            
-        <android:name=".features.main.view.MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
 
         <activity
             android:name=".features.lock.view.LockActivity"
