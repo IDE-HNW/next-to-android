@@ -9,15 +9,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import kr.hs.ide.nextto.R
-import kr.hs.ide.nextto.databinding.FragmentProfileBinding
-import kr.hs.ide.nextto.features.profile.vm.ProfileViewModel
+import kr.hs.ide.nextto.databinding.FragmentUserInfoBinding
+import kr.hs.ide.nextto.features.profile.vm.UserInfoViewModel
 
-class ProfileFragment : Fragment() {
-    private lateinit var binding : FragmentProfileBinding
-    private val viewModel : ProfileViewModel by viewModels()
+class UserInfoFragment : Fragment() {
+    private lateinit var binding : FragmentUserInfoBinding
+    private val viewModel : UserInfoViewModel by viewModels()
 
     init {
-        Log.d("ProfileFragment","생성")
+        Log.d("UserInfoFragment","생성")
     }
 
     override fun onCreateView(
@@ -27,7 +27,7 @@ class ProfileFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-        R.layout.fragment_profile,
+        R.layout.fragment_user_info,
             container,
             false
         )
