@@ -12,4 +12,9 @@
     <color name="sub_main">#B6C867</color>
     <color name="little_main">#FFC074</color>
     <color name="very_little_main">#FAF1E6</color>
+
+    <color name="main_white">#FAF1E6</color>
+    <color name="main_orange">#FFC074</color>
+    <color name="main_green">#B6C867</color>
+    <color name="main_deep_green">#01937C</color>
 </resources>
