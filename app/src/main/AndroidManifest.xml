@@ -34,6 +34,12 @@
             android:taskAffinity="kr.hs.ide.nextto.lockscreen"
             />
 
+        <service android:name=".features.lock.service.LockScreenService"
+            android:enabled="true"
+            android:permission="android.permission.SYSTEM_ALERT_WINDOW"
+            android:exported="true" />
+
+
         <activity android:name=".features.setting.view.SettingActivity"
             android:exported="true">
 
