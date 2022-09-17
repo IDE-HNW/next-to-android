@@ -43,11 +43,6 @@
         <activity android:name=".features.setting.view.SettingActivity"
             android:exported="true">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
 
@@ -56,7 +51,12 @@
             android:exported="false" />
         <activity
             android:name=".features.main.view.MainActivity"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
