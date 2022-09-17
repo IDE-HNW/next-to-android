@@ -2,14 +2,11 @@ package kr.hs.ide.nextto.features.main.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import kr.hs.ide.nextto.R
 import kr.hs.ide.nextto.databinding.ActivityMainBinding
-import kr.hs.ide.nextto.databinding.FragmentMainBinding
-import kr.hs.ide.nextto.features.main.vm.MainViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -25,7 +22,5 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav
             .setupWithNavController(navController)
 
-        when(binding.bottomNav.selectedItemId){
-        }
     }
 }

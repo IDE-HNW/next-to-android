@@ -5,7 +5,7 @@
     app:startDestination="@id/main">
     <fragment
         android:id="@+id/main"
-        android:name="kr.hs.ide.nextto.features.main.view.MainFragment"
+        android:name="kr.hs.ide.nextto.features.main.view.HomeFragment"
         android:label="MainFragment"
          >
 

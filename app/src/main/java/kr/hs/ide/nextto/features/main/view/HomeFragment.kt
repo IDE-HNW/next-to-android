@@ -8,17 +8,16 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kr.hs.ide.nextto.R
 import kr.hs.ide.nextto.databinding.FragmentMainBinding
 import kr.hs.ide.nextto.features.main.adapter.BenefitAdapter
-import kr.hs.ide.nextto.features.main.vm.MainViewModel
+import kr.hs.ide.nextto.features.main.vm.HomeViewModel
 import kr.hs.ide.nextto.network.model.BenefitInfo
 
-class MainFragment : Fragment() {
+class HomeFragment : Fragment() {
     private lateinit var binding : FragmentMainBinding
-    private val viewModel : MainViewModel by viewModels()
+    private val viewModel : HomeViewModel by viewModels()
 
     init {
         Log.d("MainFragment","생성")
@@ -30,7 +29,7 @@ class MainFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-        R.layout.fragment_main,
+        R.layout.fragment_home,
             container,
             false
         )

@@ -5,8 +5,8 @@
     tools:context=".features.main.view.MainActivity">
     <data>
         <variable
-            name=""
-            type="" />
+            name="vm"
+            type="kr.hs.ide.nextto.features.main.vm.MainViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
