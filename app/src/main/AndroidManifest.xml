@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="kr.hs.ide.nextto">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
@@ -18,6 +21,7 @@
         android:theme="@style/Theme.Nextto"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
         <activity
             android:name=".features.main.view.SignInActivity"
             android:exported="true" >
@@ -27,6 +31,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".features.lock.view.LockActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:taskAffinity="kr.hs.ide.nextto.lockscreen"
+            />
+
+        <service android:name=".features.lock.service.LockScreenService"
+            android:enabled="true"
+            android:permission="android.permission.SYSTEM_ALERT_WINDOW"
+            android:exported="true" />
+
         <activity
             android:name=".features.main.view.SignUpActivity"
             android:exported="false" />

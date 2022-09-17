@@ -2,6 +2,6 @@ package kr.hs.ide.nextto.features.profile.vm
 
 import androidx.lifecycle.ViewModel
 
-class ProfileViewModel : ViewModel(){
+class UserInfoViewModel : ViewModel(){
 
 }

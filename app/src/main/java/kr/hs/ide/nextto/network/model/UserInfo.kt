@@ -1,6 +1,6 @@
 package kr.hs.ide.nextto.network.model
 
-data class ProfileInfo(
+data class UserInfo(
     val memberId :String,
     val name : String,
     val emergencyContact : String,

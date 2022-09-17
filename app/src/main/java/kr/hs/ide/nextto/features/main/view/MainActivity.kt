@@ -11,7 +11,13 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import android.net.Uri
+import android.provider.Settings
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.rabbitmq.client.AMQP
@@ -26,9 +32,8 @@ import java.io.IOException
 import kotlin.concurrent.thread
 import kotlin.jvm.Throws
 
-
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     private val channelId = "testChannel"
 
@@ -39,12 +44,18 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
         setContentView(binding.root)
 
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        setContentView(binding.root)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_Container_View) as NavHostFragment
 
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         val navController = navHostFragment.navController
-        binding.bottomNav.setupWithNavController(navController)
+
+        binding.bottomNav
+            .setupWithNavController(navController)
+        checkPermission()
 
         createNotificationChannel(channelId, "test", "test채널")
         thread {
@@ -125,4 +136,34 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun checkPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!Settings.canDrawOverlays(this)) {
+                val uri = Uri.fromParts("package", packageName, null)
+                val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, uri)
+                startActivityForResult(intent, 0)
+            } else {
+                val intent = Intent(applicationContext, LockScreenService::class.java)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    startForegroundService(intent)
+                }
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 0) {
+            if (!Settings.canDrawOverlays(this)) {
+                Toast.makeText(this, "권한을 수락해주세요!", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(applicationContext, LockScreenService::class.java)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    startForegroundService(intent)
+                }
+            }
+        }
+    }
 }
+
