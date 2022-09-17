@@ -8,7 +8,6 @@ import kr.hs.ide.nextto.databinding.FragmentMainBinding
 import kr.hs.ide.nextto.features.main.vm.MainViewModel
 
 class MainActivity : AppCompatActivity() {
-    private val viewModel = MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
