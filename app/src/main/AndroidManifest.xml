@@ -24,7 +24,6 @@
 
         <activity
             android:name=".features.lock.view.LockActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:taskAffinity="kr.hs.ide.nextto.lockscreen"

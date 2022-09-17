@@ -15,7 +15,7 @@ import kr.hs.ide.nextto.features.lock.view.LockActivity
 import kr.hs.ide.nextto.features.setting.view.SettingActivity
 
 class LockScreenService : Service() {
-    private val receiver = object:BroadcastReceiver() {
+    private val receiver = object : BroadcastReceiver() {
 
         override fun onReceive(context: Context?, intent: Intent?) {
             if (intent != null) {
@@ -31,7 +31,6 @@ class LockScreenService : Service() {
                 }
             }
         }
-
     }
 
     override fun onBind(p0: Intent?): IBinder? {
@@ -51,8 +50,8 @@ class LockScreenService : Service() {
         val pending = PendingIntent.getActivity(this, 0, Intent(this, SettingActivity::class.java), PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         val notification = Notification.Builder(this, ALARM_ID)
             .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle("잠금화면 서비스가 동작중이에요")
-            .setContentText("오늘 행복한 하루가 되기를 바래요!")
+            .setContentTitle("NextTo가 항상 곁에 있어요")
+            .setContentText("오늘 하루 꼭 행복하길 바래요!")
             .setContentIntent(pending)
             .build()
 

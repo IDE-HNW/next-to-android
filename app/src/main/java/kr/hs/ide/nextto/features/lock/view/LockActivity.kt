@@ -4,6 +4,7 @@ import android.app.KeyguardManager
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +12,7 @@ import kr.hs.ide.nextto.R
 
 class LockActivity : AppCompatActivity() {
 
-    private val btnLock: Button by lazy {
+    private val btnLock: View by lazy {
         findViewById(R.id.btn_lock)
     }
 
