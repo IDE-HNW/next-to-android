@@ -2,19 +2,19 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/main">
     <fragment
-        android:id="@+id/mainFragment"
+        android:id="@+id/main"
         android:name="kr.hs.ide.nextto.features.main.view.MainFragment"
         android:label="MainFragment"
          >
 
         <action
             android:id="@+id/action_mainFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/profile" />
     </fragment>
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/profile"
         android:name="kr.hs.ide.nextto.features.profile.view.ProfileFragment"
         android:label="ProfileFragment" />
 </navigation>
