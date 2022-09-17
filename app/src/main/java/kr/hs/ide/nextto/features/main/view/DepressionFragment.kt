@@ -1,6 +1,7 @@
 package kr.hs.ide.nextto.features.main.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,10 @@ import kr.hs.ide.nextto.databinding.FragmentDepressionBinding
 
 
 class DepressionFragment : Fragment() {
+
+    init {
+        Log.d("DepressionFragment","생성")
+    }
 
     var score = 0
     override fun onCreateView(
