@@ -29,21 +29,25 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-        R.layout.fragment_home,
+            R.layout.fragment_home,
             container,
             false
         )
+
         val list = listOf(
             BenefitInfo("제목1","내용1","사진"),
             BenefitInfo("제목2","내용2","사진"),
             BenefitInfo("제목3","내용3","사진")
         )
+
         val adapter = BenefitAdapter()
+
         with(binding.rvMainList){
             this.adapter = adapter
             layoutManager = LinearLayoutManager(requireContext())
             adapter.submitList(list)
         }
+
         return binding.root
     }
 
