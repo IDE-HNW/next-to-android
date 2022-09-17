@@ -10,13 +10,15 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import kr.hs.ide.nextto.R
 import kr.hs.ide.nextto.databinding.FragmentMainBinding
+import kr.hs.ide.nextto.databinding.FragmentProfileBinding
 import kr.hs.ide.nextto.features.main.adapter.BenefitAdapter
 import kr.hs.ide.nextto.features.main.vm.MainViewModel
+import kr.hs.ide.nextto.features.main.vm.ProfileViewModel
 import kr.hs.ide.nextto.network.model.BenefitInfo
 
-class MainFragment : Fragment() {
-    private lateinit var binding : FragmentMainBinding
-    private val viewModel : MainViewModel by viewModels()
+class ProfileFragment : Fragment() {
+    private lateinit var binding : FragmentProfileBinding
+    private val viewModel : ProfileViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,21 +26,10 @@ class MainFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-        R.layout.fragment_main,
+        R.layout.fragment_profile,
             container,
             false
         )
-        val list = listOf(
-            BenefitInfo("제목1","내용1","사진"),
-            BenefitInfo("제목2","내용2","사진"),
-            BenefitInfo("제목3","내용3","사진")
-        )
-        val adapter = BenefitAdapter()
-        with(binding.rvMainList){
-            this.adapter = adapter
-            layoutManager = LinearLayoutManager(requireContext())
-        }
-        adapter.submitList(list)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 

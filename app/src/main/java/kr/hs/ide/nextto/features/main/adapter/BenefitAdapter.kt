@@ -10,7 +10,7 @@ import kr.hs.ide.nextto.databinding.ItemBenefitBinding
 import kr.hs.ide.nextto.features.main.adapter.callback.MainDiffUtilCallBack
 import kr.hs.ide.nextto.network.model.BenefitInfo
 
-class MainAdapter : ListAdapter<BenefitInfo,MainAdapter.BenefitViewHolder>(MainDiffUtilCallBack()) {
+class BenefitAdapter : ListAdapter<BenefitInfo,BenefitAdapter.BenefitViewHolder>(MainDiffUtilCallBack()) {
 
     inner class BenefitViewHolder(private val binding: ItemBenefitBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: BenefitInfo) {
